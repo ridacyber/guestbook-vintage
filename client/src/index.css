@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital@0;1&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #2C2420;
+  --card: #F5EDD9;
+  --card-edge: #C9B99A;
+  --accent: #C4858A;
+  --text-dark: #3D2B1F;
+  --text-light: #E8D5B7;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Lora', serif;
+  color: var(--text-light);
+  min-height: 100vh;
+}
