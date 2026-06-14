@@ -13,6 +13,7 @@ function App() {
   const [adminPassword, setAdminPassword] = useState('')
   const [showAdmin, setShowAdmin] = useState(false)
   const [isAdminVerified, setIsAdminVerified] = useState(false)
+  const [showPrivacy, setShowPrivacy] = useState(false)
 
   useEffect(() => {
     fetchMessages()
@@ -168,6 +169,45 @@ function App() {
           </div>
         )}
       </div>
+
+      <div className="footer">
+        <button className="footer-link" onClick={() => setShowPrivacy(true)}>
+          Privacy Policy
+        </button>
+      </div>
+
+      {showPrivacy && (
+        <div className="modal-overlay" onClick={() => setShowPrivacy(false)}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowPrivacy(false)}>✕</button>
+            <h2 className="modal-title">Privacy Policy — Guestbook</h2>
+            <p className="modal-meta">Effective Date: June 14, 2026</p>
+
+            <p>Guestbook is a simple message board where visitors can leave a name and a message.</p>
+
+            <h3>What You Submit</h3>
+            <p>When you use Guestbook, you submit a name and a message. These are the only inputs the tool processes.</p>
+
+            <h3>How Your Data Is Used</h3>
+            <p>Your name and message are stored in a PostgreSQL database so they can be displayed to other visitors. Each message is assigned a unique deletion token, allowing you to delete your own message later. Messages remain visible until deleted by the author or an admin.</p>
+
+            <h3>Infrastructure</h3>
+            <p>Guestbook's frontend is hosted on Vercel, and its backend and database are hosted on Render. These platforms may log standard request metadata (IP addresses, timestamps) as part of normal operations.</p>
+
+            <h3>No User Accounts</h3>
+            <p>Guestbook does not require an account and does not collect personally identifiable information such as email or location. Please don't enter real personal info in the "name" field that you wouldn't want shown publicly.</p>
+
+            <h3>Cookies & Tracking</h3>
+            <p>Guestbook does not use cookies, tracking pixels, or third-party analytics tools.</p>
+
+            <h3>Children's Privacy</h3>
+            <p>Guestbook is not directed at children under 13 and does not knowingly collect information from them.</p>
+
+            <h3>Contact</h3>
+            <p>Built and maintained by Rida at TawakalStudio. Questions or message removal requests: <a href="mailto:info@tawakalstudio.com">info@tawakalstudio.com</a></p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
